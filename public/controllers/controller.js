@@ -1,3 +1,6 @@
+var mongoose = require('mongoose');
+var User = require('.../app/models/user');
+var PickUp = require('.../app/models/pickUp');
 var myApp = angular.module('myApp',[]);
 myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
     console.log("Hello World from controller");
@@ -10,4 +13,17 @@ myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
         });
     };
     refresh();
+
+    var addPickUp = function (){
+        var pickUp = new PickUp();
+        pickUp.host = $scope.user;
+        pickUp.sport = $scope.sportAdd;
+        pickUp.location = $scope.locationAdd;
+        pickUp.date = $scope.dateAdd;
+        pickUp.time = $scope.timeAdd;
+
+        $http.put('/pickUps',pickUp).success(function(response){
+           refresh();
+        });
+    };
 }]);

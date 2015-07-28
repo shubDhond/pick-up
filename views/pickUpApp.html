@@ -37,7 +37,7 @@
 <div class="overlay"></div>
 <div class="container" ng-controller="AppCtrl">
     <div class="left-nav">
-        <div class="nav-header">pick UP</div>
+        <div class="nav-header">pick up</div>
         <ul class="nav nav-pills nav-stacked">
             <li role="presentation" class="active"><a href="#" class="profile">Profile</a></li>
             <li role="presentation"><a href="#" class="add-pick-up">Add pickUP</a></li>
@@ -51,27 +51,27 @@
                     <label for="sport">
                         Sport:
                     </label>
-                    <input class="form-control" id="sport" placeholder="Sport">
+                    <input class="form-control" id="sport" placeholder="Sport" ng-model="sportAdd">
                 </div>
                 <div class="form-group">
                     <label for="location">
                         Location:
                     </label>
-                    <input id="pac-input" class="controls form-control" id="location" type="text" placeholder="Location">
+                    <input class="controls form-control" id="location" type="text" placeholder="Location" ng-model="locationAdd">
                 </div>
                 <div class="form-group">
                     <label for="date">
                         Date:
                     </label>
-                    <input class="form-control" id="date" type="date">
+                    <input class="form-control" id="date" type="date" ng-model="dateAdd">
                 </div>
                 <div class="form-group">
                     <label for="time">
                         Time:
                     </label>
-                    <input class="form-control" id="time" type="time">
+                    <input class="form-control" id="time" type="time" ng-model="timeAdd">
                 </div>
-                <button class="btn btn-success">Add</button>
+                <button class="btn btn-success" ng-click="addPickUp">Add</button>
             </form>
         </div>
         <div class="map-container">
@@ -83,6 +83,7 @@
             <table class="table">
                 <thead>
                 <tr>
+                    <th>Host</th>
                     <th>Sport</th>
                     <th>Location</th>
                     <th>Date</th>

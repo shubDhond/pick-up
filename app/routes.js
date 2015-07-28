@@ -25,6 +25,10 @@ module.exports = function (app, passport) {
         });
     });
 
+    app.put('/pickUps',isLoggedIn, function(req, res){
+
+    });
+
     // route for logging out
     app.get('/logout', function (req, res) {
         req.logout();
