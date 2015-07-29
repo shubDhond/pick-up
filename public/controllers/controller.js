@@ -12,9 +12,9 @@ myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
     refresh();
 
     $scope.addPickUp = function(){
-        console.log('add pick up');
+        console.log($scope.user);
         var pickUp = {};
-        pickUp.host = $scope.user;
+        pickUp.host = $scope.hostAdd.google.name;
         pickUp.sport = $scope.sportAdd;
         pickUp.location = $scope.locationAdd;
         pickUp.date = $scope.dateAdd;

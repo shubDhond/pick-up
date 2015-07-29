@@ -35,9 +35,9 @@
 </head>
 <body>
 <div class="overlay"></div>
-<div class="container" ng-controller="AppCtrl">
+<div class="container" ng-controller="AppCtrl" ng-init="hostAdd=user">
     <div class="left-nav">
-        <div class="nav-header">pick up</div>
+        <div class="nav-header">{{user.google.name}}</div>
         <ul class="nav nav-pills nav-stacked">
             <li role="presentation" class="active"><a href="#" class="profile">Profile</a></li>
             <li role="presentation"><a href="#" class="add-pick-up">Add pickUP</a></li>
