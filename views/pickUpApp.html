@@ -26,7 +26,7 @@
 
             // Create the search box and link it to the UI element.
             var input = /** @type {HTMLInputElement} */(
-                    document.getElementById('pac-input'));
+                    document.getElementById('location'));
             var autocomplete=new google.maps.places.Autocomplete(input);
         }
         google.maps.event.addDomListener(window, 'load', initialize);
@@ -71,7 +71,7 @@
                     </label>
                     <input class="form-control" id="time" type="time" ng-model="timeAdd">
                 </div>
-                <button class="btn btn-success" ng-click="addPickUp">Add</button>
+                <button class="btn btn-success add-pick-up" ng-click="addPickUp()">Add</button>
             </form>
         </div>
         <div class="map-container">

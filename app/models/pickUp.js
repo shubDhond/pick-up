@@ -16,4 +16,4 @@ var pickUpSchema = new Schema({
     going: Number
 });
 
-mongoose.model('PickUp', pickUpSchema);
+module.exports = mongoose.model('PickUp', pickUpSchema);

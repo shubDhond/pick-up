@@ -2,8 +2,11 @@
  * Created by sdhond on 2015-07-25.
  */
 var mongoose = require('mongoose');
-var userModel = require('./models/user');
-var pickUpModel = require('./models/pickUp');
+var userSchema = require('./models/user.js');
+var pickUpSchema = require('./models/pickUp.js');
+var User = mongoose.model('User');
+var PickUp = mongoose.model('PickUp');
+var bodyParser = require('body-parser');
 
 module.exports = function (app, passport) {
 
@@ -19,14 +22,20 @@ module.exports = function (app, passport) {
 
     app.get('/pickUps', isLoggedIn, function(req, res){
         mongoose.model('PickUp').find(function(err,pickUps){
-            mongoose.model('PickUp').populate(pickUps,{path: 'host'}, function(err, pickUps){
-                res.send(pickUps);
+            mongoose.model('PickUp').populate(pickUps,{path: 'host'}, function(err, docs){
+                res.json(docs);
             });
         });
     });
 
-    app.put('/pickUps',isLoggedIn, function(req, res){
-
+    app.post('/pickUps',isLoggedIn, function(req, res){
+       var pickUp = req.body;
+        console.log(pickUp);
+       PickUp.create(pickUp, function(err,pUp){
+            if(err!=null){
+                console.log('pick up saved');
+            }
+       });
     });
 
     // route for logging out
