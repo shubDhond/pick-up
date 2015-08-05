@@ -2,7 +2,9 @@
  * Created by sdhond on 2015-07-25.
  */
 var express  = require('express');
+var expose = require('express-expose');
 var app      = express();
+app = expose(app);
 var port     = process.env.PORT || 8080;
 var mongoose = require('mongoose');
 var passport = require('passport');

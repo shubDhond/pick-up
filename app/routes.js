@@ -6,7 +6,6 @@ var userSchema = require('./models/user.js');
 var pickUpSchema = require('./models/pickUp.js');
 var User = mongoose.model('User');
 var PickUp = mongoose.model('PickUp');
-var bodyParser = require('body-parser');
 
 module.exports = function (app, passport) {
 
@@ -15,9 +14,16 @@ module.exports = function (app, passport) {
     });
 
     app.get('/App', isLoggedIn, function (req, res) {
-        res.render('pickUpApp.html', {
-            user: req.user // get the user out of session and pass to template
-        });
+        res.render('pickUpApp.html');
+    });
+
+    app.get('/api/user_data', function(req, res) {
+        if (req.user === undefined) {
+            // The user is not logged in
+            res.json({});
+        } else {
+            res.json(req.user);
+        }
     });
 
     app.get('/pickUps', isLoggedIn, function(req, res){
@@ -32,9 +38,7 @@ module.exports = function (app, passport) {
        var pickUp = req.body;
         console.log(pickUp);
        PickUp.create(pickUp, function(err,pUp){
-            if(err!=null){
-                console.log('pick up saved');
-            }
+            res.json(pUp);
        });
     });
 
