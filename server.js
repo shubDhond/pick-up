@@ -2,9 +2,7 @@
  * Created by sdhond on 2015-07-25.
  */
 var express  = require('express');
-var expose = require('express-expose');
 var app      = express();
-app = expose(app);
 var port     = process.env.PORT || 8080;
 var mongoose = require('mongoose');
 var passport = require('passport');
@@ -23,6 +21,7 @@ app.set('view engine', 'html');
 app.use(express.static(path.join(__dirname, '/public')));
 app.use('/public/javascripts', express.static(path.join(__dirname, 'public/javascripts')));
 app.use('/public/stylesheets', express.static(path.join(__dirname, 'public/stylesheets')));
+app.use('/public/controllers', express.static(path.join(__dirname, 'public/controllers')));
 
 var configDB = require('./config/database.js');
 mongoose.connect(configDB.url); // connect to our database
