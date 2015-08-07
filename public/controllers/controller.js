@@ -10,6 +10,7 @@ myApp.controller('AppCtrl', ['$scope', '$http', function ($scope, $http) {
     var refresh = function () {
         $http.get('/pickUps').success(function (response) {
             $scope.pickUps = response;
+            $scope.pickUp = '';
             console.log($scope.pickUps);
         });
     };
@@ -20,8 +21,8 @@ myApp.controller('AppCtrl', ['$scope', '$http', function ($scope, $http) {
         pickUp.host = $scope.user._id;
         pickUp.sport = $scope.sportAdd;
         pickUp.location = $scope.locationAdd;
-        pickUp.date = $scope.dateAdd;
-        pickUp.time = $scope.timeAdd;
+        pickUp.date = $scope.dateAdd.toDateString();
+        pickUp.time = $scope.timeAdd.toTimeString();
 
         $http.post('/pickUps', pickUp).success(function (response) {
             refresh();

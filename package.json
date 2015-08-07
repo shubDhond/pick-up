@@ -2,6 +2,7 @@
   "name": "pickUpApp",
   "main": "server.js",
   "dependencies": {
+    "angular-route": "^1.4.3",
     "bcrypt-nodejs": "latest",
     "body-parser": "~1.0.0",
     "connect-flash": "~0.1.1",

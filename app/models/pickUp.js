@@ -11,7 +11,7 @@ var pickUpSchema = new Schema({
     },
     sport: String,
     location: String,
-    date: Date,
+    date: String,
     time: String,
     going: Number
 });

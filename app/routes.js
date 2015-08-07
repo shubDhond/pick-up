@@ -14,7 +14,9 @@ module.exports = function (app, passport) {
     });
 
     app.get('/App', isLoggedIn, function (req, res) {
-        res.render('pickUpApp.html');
+        res.json({
+           successful: true
+        });
     });
 
     app.get('/api/user_data', function(req, res) {
