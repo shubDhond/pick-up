@@ -16,6 +16,8 @@ var engines = require('consolidate');
 var path = require("path");
 
 app.set('views', __dirname + '/views');
+app.engine('html', engines.htmling);
+app.set('view engine', 'html');
 app.use(express.static(path.join(__dirname, '/public')));
 app.use('/public/javascripts', express.static(path.join(__dirname, 'public/javascripts')));
 app.use('/public/stylesheets', express.static(path.join(__dirname, 'public/stylesheets')));
