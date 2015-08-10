@@ -15,11 +15,11 @@ module.exports = function (app, passport) {
 
     app.get('/App', isLoggedIn, function (req, res) {
         res.json({
-           successful: true
+            successful: true
         });
     });
 
-    app.get('/api/user_data', function(req, res) {
+    app.get('/api/user_data', function (req, res) {
         if (req.user === undefined) {
             // The user is not logged in
             res.json({});
@@ -28,20 +28,20 @@ module.exports = function (app, passport) {
         }
     });
 
-    app.get('/pickUps', isLoggedIn, function(req, res){
-        mongoose.model('PickUp').find(function(err,pickUps){
-            mongoose.model('PickUp').populate(pickUps,{path: 'host'}, function(err, docs){
+    app.get('/pickUps', isLoggedIn, function (req, res) {
+        mongoose.model('PickUp').find(function (err, pickUps) {
+            mongoose.model('PickUp').populate(pickUps, {path: 'host'}, function (err, docs) {
                 res.json(docs);
             });
         });
     });
 
-    app.post('/pickUps',isLoggedIn, function(req, res){
-       var pickUp = req.body;
+    app.post('/pickUps', isLoggedIn, function (req, res) {
+        var pickUp = req.body;
         console.log(pickUp);
-       PickUp.create(pickUp, function(err,pUp){
+        PickUp.create(pickUp, function (err, pUp) {
             res.json(pUp);
-       });
+        });
     });
 
     // route for logging out
@@ -53,11 +53,17 @@ module.exports = function (app, passport) {
     app.get('/auth/google', passport.authenticate('google', {scope: ['profile', 'email']}));
 
     // the callback after google has authenticated the user
-    app.get('/auth/google/callback',
-        passport.authenticate('google', {
-            successRedirect: '/App',
-            failureRedirect: '/'
-        }));
+    app.get('/auth/google/callback', function (req, res, next) {
+            passport.authenticate('google', function (err, user, info){
+                if(err)
+                    return next(err);
+                if(user == false)
+                    res.status(401).send(info.message);
+                else
+                    res.status(200).send(info.message);
+            })(req,res,next);
+        }
+    );
 };
 
 // route middleware to make sure a user is logged in
