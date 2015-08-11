@@ -1,16 +1,4 @@
-var myApp = angular.module('myApp', ['ngRoute']);
-myApp.config(['$routeProvider', '$locationProvider', function($routeProvider,$locationProvider){
-    $locationProvider.html5Mode(true);
-    $routeProvider
-        .when('/', {
-            templateUrl : '../../views/index.html'
-        })
-        .when('/App', {
-            templateUrl : '../../views/pickUpApp.html',
-            controller  : 'AppCtrl'
-        })
-        .otherwise({redirectTo: "/"});
-}]);
+var myApp = angular.module('myApp', []);
 
 myApp.controller('AppCtrl', ['$scope', '$http', function ($scope, $http) {
     console.log("Hello World from controller");

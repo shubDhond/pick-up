@@ -40,6 +40,9 @@ html body .container .left-nav .nav-header {
   color: white;
   border-bottom: 2px solid #333;
 }
+html body .container .left-nav li {
+  cursor: pointer;
+}
 html body .container .left-nav ul {
   padding: 10px;
   text-align: center;

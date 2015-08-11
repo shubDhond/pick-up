@@ -5,10 +5,6 @@ $(document).ready(function(){
         var slideOutMenu = $('.add-pickUp');
 
         slideOutMenu.toggleClass('open');
-        $('.add-pick-up').parent().toggleClass('active');
-        $('.profile').parent().removeClass('active');
-        $('.find-pick-up').parent().removeClass('active');
-
 
 
         if(!slideOutMenu.hasClass('open')){

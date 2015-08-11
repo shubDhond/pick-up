@@ -6,15 +6,12 @@ var userSchema = require('./models/user.js');
 var pickUpSchema = require('./models/pickUp.js');
 var User = mongoose.model('User');
 var PickUp = mongoose.model('PickUp');
+var path = require('path');
 
 module.exports = function (app, passport) {
 
-    app.get('/', function (req, res) {
-        res.render('index.html');
-    });
-
     app.get('/App', isLoggedIn, function (req, res) {
-       res.render('pickUpApp.html')
+       res.sendfile(path.resolve('views/pickUpApp.html'));
     });
 
     app.get('/api/user_data', function(req, res) {
@@ -53,9 +50,13 @@ module.exports = function (app, passport) {
     // the callback after google has authenticated the user
     app.get('/auth/google/callback',
         passport.authenticate('google', {
-            successRedirect: '#/App',
+            successRedirect: '/App',
             failureRedirect: '/'
         }));
+
+    app.get('/*', function (req, res) {
+        res.sendfile(path.resolve('views/index.html'));
+    });
 };
 
 // route middleware to make sure a user is logged in
