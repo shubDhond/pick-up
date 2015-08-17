@@ -29,4 +29,9 @@ $(document).ready(function(){
 
     $('.add-pick-up').on('click',slideAdd);
     $('.overlay').on('click',slideAdd);
+
+    $(".nav a").on("click", function(){
+        $(".nav").find(".active").removeClass("active");
+        $(this).parent().addClass("active");
+    });
 });
