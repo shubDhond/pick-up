@@ -2,28 +2,28 @@ $(document).ready(function(){
     function slideAdd(event){
         event.preventDefault();
 
-        var slideOutMenu = $('.add-pickUp');
+        var addPopup = $('.add-pickUp');
+        var navbar = $('#navbar');
 
-        slideOutMenu.toggleClass('open');
+        addPopup.toggleClass('open');
 
 
-        if(!slideOutMenu.hasClass('open')){
-            slideOutMenu.css({
-                'left': '-10%',
-                'transition': 'left 0.5s'
+        if(!addPopup.hasClass('open')){
+            addPopup.css({
+                'display': 'none'
             });
             $('.overlay').css({
                 'display': 'none'
             });
         }
         else{
-            slideOutMenu.css({
-                'left': '20%',
-                'transition': 'left 0.5s'
+            addPopup.css({
+                'display': 'block'
             });
             $('.overlay').css({
                 'display': 'block'
             });
+            navbar.toggleClass('in');
         }
     };
 

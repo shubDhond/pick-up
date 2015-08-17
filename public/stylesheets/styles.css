@@ -1,26 +1,63 @@
-body {
+html {
   height: 100%;
 }
-body .overlay {
+html body {
+  height: 100%;
+}
+html body .overlay {
   background-color: black;
   opacity: 0.4;
   display: none;
   height: 100%;
   width: 100%;
-  z-index: 20;
+  z-index: 1100;
   position: absolute;
   cursor: pointer;
 }
-body .navbar .navbar-header .navbar-brand {
+html body .navbar .navbar-header .navbar-brand {
   height: auto;
 }
-body .navbar .navbar-header .navbar-brand .img-circle {
+html body .navbar .navbar-header .navbar-brand .img-circle {
   width: 40px;
 }
-body .navbar .navbar-header .navbar-toggle {
+html body .navbar .navbar-header .navbar-toggle {
   margin-top: 19px;
   margin-bottom: 19px;
 }
-body .navbar .navbar-nav li a {
+html body .navbar .navbar-nav li a {
   line-height: 40px;
+}
+html body #content-container {
+  height: 100%;
+}
+html body #content-container .content {
+  height: 100%;
+}
+html body #content-container .content .add-pickUp {
+  width: 40%;
+  position: absolute;
+  z-index: 2000;
+  text-align: center;
+  display: none;
+  background-color: #222222;
+  padding: 20px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  margin: auto;
+  top: 20%;
+  bottom: 30%;
+  right: 50px;
+  left: 50px;
+  color: #ffffff;
+}
+html body #content-container .content .map-container {
+  height: 80%;
+  top: 90px;
+  padding-top: 90px;
+  padding-bottom: 10px;
+}
+html body #content-container .content .map-container .jumbotron {
+  height: 100%;
+  padding: 15px;
 }

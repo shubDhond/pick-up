@@ -1,35 +1,73 @@
-
-body {
+html {
   height: 100%;
-
-  .overlay {
-    background-color: black;
-    opacity: 0.4;
-    display: none;
+  body {
     height: 100%;
-    width: 100%;
-    z-index: 20;
-    position: absolute;
-    cursor: pointer;
-  }
 
-  .navbar {
-    .navbar-header {
-      .navbar-brand {
-        height: auto;
-        .img-circle {
-          width: 40px;
+    .overlay {
+      background-color: black;
+      opacity: 0.4;
+      display: none;
+      height: 100%;
+      width: 100%;
+      z-index: 1100;
+      position: absolute;
+      cursor: pointer;
+    }
+
+    .navbar {
+      .navbar-header {
+        .navbar-brand {
+          height: auto;
+          .img-circle {
+            width: 40px;
+          }
+        }
+        .navbar-toggle {
+          margin-top: 19px;
+          margin-bottom: 19px;
         }
       }
-      .navbar-toggle {
-        margin-top: 19px;
-        margin-bottom: 19px;
+      .navbar-nav {
+        li {
+          a {
+            line-height: 40px;
+          }
+        }
       }
     }
-    .navbar-nav {
-      li {
-        a {
-          line-height: 40px;
+    
+    #content-container {
+      height:100%;
+      .content {
+        height: 100%;
+        .add-pickUp {
+          width: 40%;
+          position: absolute;
+          z-index: 2000;
+          text-align: center;
+          display: none;
+          background-color: #222222;
+          padding: 20px;
+          -webkit-border-radius: 10px;
+          -moz-border-radius: 10px;
+          border-radius: 10px;
+          margin: auto;
+          top: 20%;
+          bottom: 30%;
+          right: 50px;
+          left: 50px;
+          color: #ffffff;
+        }
+
+        .map-container {
+          height: 80%;
+          top: 90px;
+          padding-top: 90px;
+          padding-bottom: 10px;
+          .jumbotron {
+            height: 100%;
+            padding: 15px;
+          }
         }
       }
     }
