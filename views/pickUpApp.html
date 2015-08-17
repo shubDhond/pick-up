@@ -2,6 +2,8 @@
 <html ng-app="myApp">
 <head>
     <title>pickUP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="../public/stylesheets/styles.css">
 
     <!-- Latest compiled and minified CSS -->
@@ -88,7 +90,7 @@
                     </label>
                     <input class="form-control" id="time" type="time" ng-model="timeAdd">
                 </div>
-                <button class="btn btn-success add-pick-up" ng-click="addPickUp()">Add</button>
+                <button class="btn btn-success add-pick-up" ng-click="createPickUp()">Create</button>
             </form>
         </div>
         <div class="map-container">

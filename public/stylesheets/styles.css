@@ -26,6 +26,7 @@ html body .navbar .navbar-header .navbar-toggle {
 }
 html body .navbar .navbar-nav li a {
   line-height: 40px;
+  cursor: pointer;
 }
 html body #content-container {
   height: 100%;

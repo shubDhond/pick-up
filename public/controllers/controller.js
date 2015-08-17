@@ -17,7 +17,7 @@ myApp.controller('AppCtrl', ['$scope', '$http', function ($scope, $http) {
     };
     refresh();
 
-    $scope.addPickUp = function () {
+    $scope.createPickUp = function () {
         var pickUp = {};
         pickUp.host = $scope.user._id;
         pickUp.sport = $scope.sportAdd;
