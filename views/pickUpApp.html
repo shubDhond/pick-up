@@ -16,9 +16,7 @@
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular-route.js"></script>
     <script src="../public/controllers/controller.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
-    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://css-spinners.com/css/spinner/three-quarters.css" type="text/css">
     <script>
         function initialize() {
             var mapProp = {
@@ -92,6 +90,10 @@
                 </div>
                 <button class="btn btn-success add-pick-up" ng-click="createPickUp()">Create</button>
             </form>
+            <div class="three-quarters-loader" ng-show="loading" ng-hide="!loading">
+                Loading…
+            </div>
+            <div class="alert alert-danger" role="alert" ng-show="createPickUpError" ng-hide="!createPickUpError">Something is wrong with the form.</div>
         </div>
         <div class="map-container">
             <div class="jumbotron">
@@ -123,6 +125,9 @@
         </div>
     </div>
 </div>
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <script src="../public/javascripts/animateAddPickUp.js"></script>
 <!-- Latest compiled and minified JavaScript -->
 </body>

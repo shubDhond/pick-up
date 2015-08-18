@@ -47,10 +47,15 @@ html body #content-container .content .add-pickUp {
   border-radius: 10px;
   margin: auto;
   top: 20%;
-  bottom: 30%;
   right: 50px;
   left: 50px;
   color: #ffffff;
+}
+html body #content-container .content .add-pickUp .three-quarters-loader {
+  margin: 15px;
+}
+html body #content-container .content .add-pickUp .alert {
+  margin: 15px;
 }
 html body #content-container .content .map-container {
   height: 80%;
