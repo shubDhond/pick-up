@@ -16,8 +16,8 @@ myApp.controller('AppCtrl', ['$scope', '$http', function ($scope, $http) {
             $scope.pickUps = response;
             $scope.pickUp = '';
             console.log($scope.pickUps);
-            for(var pickUp in $scope.pickUps){
-                geocoder.geocode( { 'address': pickUp.location}, function(results, status) {
+            for(var key in $scope.pickUps){
+                geocoder.geocode( { 'address': $scope.pickUps[key].location}, function(results, status) {
                     if (status == google.maps.GeocoderStatus.OK) {
                         var marker = new google.maps.Marker({
                             map: map,
