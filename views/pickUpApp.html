@@ -17,8 +17,11 @@
     <script src="../public/controllers/controller.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
     <link rel="stylesheet" href="http://css-spinners.com/css/spinner/three-quarters.css" type="text/css">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script>
         function initialize() {
+            geocoder = new google.maps.Geocoder();
             var mapProp = {
                 center: new google.maps.LatLng(51.508742, -0.120850),
                 zoom: 5,
@@ -67,33 +70,33 @@
                     <label for="sport">
                         Sport:
                     </label>
-                    <input class="form-control" id="sport" placeholder="Sport" ng-model="sportAdd">
+                    <input class="form-control" id="sport" placeholder="Sport" ng-model="sportAdd" required>
                 </div>
                 <div class="form-group">
                     <label for="location">
                         Location:
                     </label>
                     <input class="controls form-control" id="location" type="text" placeholder="Location"
-                           ng-model="locationAdd">
+                           ng-model="locationAdd" required>
                 </div>
                 <div class="form-group">
                     <label for="date">
                         Date:
                     </label>
-                    <input class="form-control" id="date" type="date" ng-model="dateAdd">
+                    <input class="form-control" id="date" type="date" ng-model="dateAdd" required>
                 </div>
                 <div class="form-group">
                     <label for="time">
                         Time:
                     </label>
-                    <input class="form-control" id="time" type="time" ng-model="timeAdd">
+                    <input class="form-control" id="time" type="time" ng-model="timeAdd" required>
                 </div>
-                <button class="btn btn-success add-pick-up" ng-click="createPickUp()">Create</button>
+                <input type="submit" class="btn btn-success" ng-click="createPickUp()" text="Create"></input>
             </form>
             <div class="three-quarters-loader" ng-show="loading" ng-hide="!loading">
                 Loading…
             </div>
-            <div class="alert alert-danger" role="alert" ng-show="createPickUpError" ng-hide="!createPickUpError">Something is wrong with the form.</div>
+            <div class="alert alert-danger" role="alert" id="create-pick-up-error-text" ng-show="createPickUpError" ng-hide="!createPickUpError">{{createPickUpErrorText}}</div>
         </div>
         <div class="map-container">
             <div class="jumbotron">
@@ -101,7 +104,7 @@
             </div>
         </div>
         <div class="pick-ups">
-            <table class="table">
+            <table class="table table-hover">
                 <thead>
                 <tr>
                     <th>Host</th>
@@ -125,8 +128,6 @@
         </div>
     </div>
 </div>
-<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <script src="../public/javascripts/animateAddPickUp.js"></script>
 <!-- Latest compiled and minified JavaScript -->

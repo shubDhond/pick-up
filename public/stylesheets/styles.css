@@ -4,6 +4,9 @@ html {
 html body {
   height: 100%;
 }
+html body .pac-container {
+  z-index: 3000!important;
+}
 html body .overlay {
   background-color: black;
   opacity: 0.4;
